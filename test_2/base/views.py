@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
 
+# Create your views here.
+# how do I use the tempalets properly?????
 
 def home(request):
     return render(request, 'home.html')
