@@ -3,21 +3,22 @@ from django.http import HttpResponse
 from .models import Room
 
 rooms = [
-    {'id': 1, 'name':'This is a message from the student'},
-    {'id': 2, 'name':'7 hour videos suck'},
-    {'id': 2, 'name':'Please split it up in under 10 minute vidoes let me just read up on it'},
+    {'id': 1, 'name':'This is a room'},
+    {'id': 2, 'name':'this is also a room'},
+    {'id': 2, 'name':'this is yet another room'},
 ]
 
 
 # Create your views here.
 def home(request):
-    rooms = Room.objects.all()
     context = {'rooms': rooms}
     return render(request, 'base/home.html', context)
 
 
 def room(request, pk):
     room = None,
-    room = Room.objects.get(id=pk)
+    for i in rooms:
+        if i['id'] == int(pk):
+            room = i
     context = {'room': room}
     return render(request, 'base/room.html', context)
